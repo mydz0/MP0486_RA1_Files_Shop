@@ -6,8 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Amount;
 import model.Employee;
+import model.Product;
 
 public class DaoImplJDBC implements Dao {
 	Connection connection;
@@ -38,28 +42,49 @@ public class DaoImplJDBC implements Dao {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 
 	@Override
 	public Employee getEmployee(int employeeId, String password) {
 		Employee employee = null;
 		String query = "select * from employee where employeeId= ? and password = ? ";
-		
-		try (PreparedStatement ps = connection.prepareStatement(query)) { 
-    		ps.setInt(1,employeeId);
-    	  	ps.setString(2,password);
-    	  	//System.out.println(ps.toString());
-            try (ResultSet rs = ps.executeQuery()) {
-            	if (rs.next()) {
-            		employee = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3));
-            	}
-            }
-        } catch (SQLException e) {
+
+		try (PreparedStatement ps = connection.prepareStatement(query)) {
+			ps.setInt(1, employeeId);
+			ps.setString(2, password);
+			// System.out.println(ps.toString());
+			try (ResultSet rs = ps.executeQuery()) {
+				if (rs.next()) {
+					employee = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3));
+				}
+			}
+		} catch (SQLException e) {
 			// in case error in SQL
 			e.printStackTrace();
 		}
-    	return employee;
+		return employee;
 	}
+	
+	@Override
+	public List<Product> getInventory() {
+		List<Product> inventory = new ArrayList<>();
+		String query = "select * from products";
+
+		try (PreparedStatement ps = connection.prepareStatement(query); ResultSet rs = ps.executeQuery()) {
+			while (rs.next()) {
+				Product product = new Product(rs.getString("name"), new Amount(rs.getDouble("wholesalerPrice")),
+						rs.getBoolean("available"), rs.getInt("stock"));
+				product.setId(rs.getInt("id"));
+				inventory.add(product);
+			}
+		} catch (SQLException e) {
+			// in case error in SQL
+			e.printStackTrace();
+		}
+		return inventory;
+	}
+
+
 
 }
