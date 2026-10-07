@@ -285,6 +285,10 @@ public class Shop {
 		*/
 	}
 	
+	public boolean writeInventory() {
+		return dao.writeInventory(inventory);
+	}
+	
 	/**
 	 * show current total cash
 	 */
