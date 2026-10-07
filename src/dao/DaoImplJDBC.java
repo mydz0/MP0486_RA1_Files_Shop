@@ -85,6 +85,12 @@ public class DaoImplJDBC implements Dao {
 		return inventory;
 	}
 
+	@Override
+	public boolean writeInventory(ArrayList<Product> inventory) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 
 }
