@@ -33,8 +33,8 @@ public class DaoImplFile implements Dao {
 	}
 
 	@Override
-	public List<Product> getInventory() {
-		List<Product>inventory = new ArrayList<Product>();
+	public ArrayList<Product> getInventory() {
+		ArrayList<Product>inventory = new ArrayList<Product>();
 		File f = new File(System.getProperty("user.dir") + File.separator + "files/inputInventory.txt");
 
 		try {

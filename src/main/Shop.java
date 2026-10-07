@@ -216,6 +216,9 @@ public class Shop {
 	 * read inventory from file
 	 */
 	private void readInventory() {
+		inventory = dao.getInventory();
+		
+		/*
 		// locate file, path and name
 		File f = new File(System.getProperty("user.dir") + File.separator + "files/inputInventory.txt");
 		
@@ -279,8 +282,9 @@ public class Shop {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 	}
-
+	
 	/**
 	 * show current total cash
 	 */
