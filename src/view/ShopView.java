@@ -10,6 +10,7 @@ import main.Shop;
 import utils.Constants;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 
@@ -140,6 +141,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 		if (e.getKeyChar() == '0') {
 			this.shop.writeInventory();
+			JOptionPane.showMessageDialog(btnExpInventory, "Inventario exportado correctamente");
 		}
 		if (e.getKeyChar() == '1') {
 			this.openCashView();
@@ -167,6 +169,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == btnExpInventory) {
 			this.shop.writeInventory();
+			JOptionPane.showMessageDialog(btnExpInventory, "Inventario exportado correctamente");
 		}
 		if (e.getSource() == btnShowCash) {
 			this.openCashView();
@@ -208,7 +211,5 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 		dialog.setModal(true);
 		dialog.setVisible(true);
 	}
-	
-	
 
 }
