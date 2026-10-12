@@ -83,7 +83,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 		lblShowCash.setBounds(57, 20, 236, 14);
 		contentPane.add(lblShowCash);
 
-		// option count cash
+		// option export inventory
 		btnExpInventory = new JButton("0. Exportar Inventario");
 		btnExpInventory.setHorizontalAlignment(SwingConstants.LEFT);
 		btnExpInventory.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -138,6 +138,9 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (e.getKeyChar() == '0') {
+			this.shop.writeInventory();
+		}
 		if (e.getKeyChar() == '1') {
 			this.openCashView();
 		}
@@ -162,6 +165,9 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if (e.getSource() == btnExpInventory) {
+			this.shop.writeInventory();
+		}
 		if (e.getSource() == btnShowCash) {
 			this.openCashView();
 		}
@@ -202,5 +208,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 		dialog.setModal(true);
 		dialog.setVisible(true);
 	}
+	
+	
 
 }
