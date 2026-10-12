@@ -210,6 +210,7 @@ public class Shop {
 //		addProduct(new Product("Fresa", new Amount(5.00), true, 20));
 		// now read from file
 		this.readInventory();
+		System.out.println(getInventory());
 	}
 
 	/**

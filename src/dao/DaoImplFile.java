@@ -113,7 +113,7 @@ public class DaoImplFile implements Dao {
 	    File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + fileName);
 
 	    // try-with-resources cierra el fichero solo
-	    try (PrintWriter pw = new PrintWriter(new FileWriter(f, true))) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(f))) {
 
 	        // write line by line, TO BE -> Product:Manzana;Wholesaler Price:10.0;Stock:10;
 	        for (Product product : inventory) {
