@@ -112,6 +112,7 @@ public class DaoImplFile implements Dao {
 	    // locate file, path and name
 	    File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + fileName);
 
+	    int counter = 0;
 	    // try-with-resources cierra el fichero solo
 	    try (PrintWriter pw = new PrintWriter(new FileWriter(f))) {
 
@@ -120,7 +121,10 @@ public class DaoImplFile implements Dao {
 	            pw.println("Product:" + product.getName()
 	                    + ";Wholesaler Price:" + product.getWholesalerPrice().getValue()
 	                    + ";Stock:" + product.getStock() + ";");
+	            counter ++;
 	        }
+	        
+	        pw.println("Total number of products:" + inventory.size() + ";");
 	        return true;
 
 	    } catch (IOException e) {
