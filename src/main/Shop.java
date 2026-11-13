@@ -1,5 +1,4 @@
 package main;
-
 import model.Product;
 import model.Sale;
 import model.Amount;
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import dao.DaoImplFile;
+import dao.Dao;
 
 public class Shop {
 	private Amount cash = new Amount(100.00);
@@ -27,7 +27,7 @@ public class Shop {
 //	private Sale[] sales;
 	private ArrayList<Sale> sales;
 	private int numberSales;
-	private DaoImplFile dao = new DaoImplFile();
+	private Dao dao = new DaoImplFile();
 
 	final static double TAX_RATE = 1.04;
 
