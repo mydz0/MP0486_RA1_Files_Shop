@@ -69,7 +69,7 @@ public class DaoImplJDBC implements Dao {
 	@Override
 	public ArrayList<Product> getInventory() {
 		ArrayList<Product> inventory = new ArrayList<>();
-		String query = "select * from products";
+		String query = "select * from inventory";
 
 		try (PreparedStatement ps = connection.prepareStatement(query); ResultSet rs = ps.executeQuery()) {
 			while (rs.next()) {
