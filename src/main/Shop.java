@@ -558,6 +558,8 @@ public class Shop {
 			System.out.println("No se pueden añadir más productos, se ha alcanzado el máximo de " + inventory.size());
 			return;
 		}
+		// insert product in table, the database generates its id
+		dao.addProduct(product);
 		inventory.add(product);
 		numberProducts++;
 	}
