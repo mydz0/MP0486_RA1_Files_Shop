@@ -133,4 +133,9 @@ public class DaoImplFile implements Dao {
 	    }
 	}
 
+	@Override
+	public void addProduct(Product product) {
+		// not implemented for files
+	}
+
 }
