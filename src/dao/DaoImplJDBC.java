@@ -131,4 +131,14 @@ public class DaoImplJDBC implements Dao {
 		}
 	}
 
+	@Override
+	public void updateProduct(Product product) {
+		// TODO implement
+	}
+
+	@Override
+	public void deleteProduct(int productId) {
+		// TODO implement
+	}
+
 }
