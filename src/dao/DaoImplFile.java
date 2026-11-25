@@ -138,4 +138,14 @@ public class DaoImplFile implements Dao {
 		// not implemented for files
 	}
 
+	@Override
+	public void updateProduct(Product product) {
+		// not implemented for files
+	}
+
+	@Override
+	public void deleteProduct(int productId) {
+		// not implemented for files
+	}
+
 }
