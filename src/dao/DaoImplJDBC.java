@@ -87,8 +87,25 @@ public class DaoImplJDBC implements Dao {
 
 	@Override
 	public boolean writeInventory(ArrayList<Product> inventory) {
-		// TODO Auto-generated method stub
-		return false;
+		String query = "insert into historical_inventory (id_product, name, wholesalerPrice, available, stock, created_at) "
+				+ "values (?, ?, ?, ?, ?, NOW())";
+
+		try (PreparedStatement ps = connection.prepareStatement(query)) {
+			for (Product product : inventory) {
+				ps.setInt(1, product.getId());
+				ps.setString(2, product.getName());
+				ps.setDouble(3, product.getWholesalerPrice().getValue());
+				ps.setBoolean(4, product.isAvailable());
+				ps.setInt(5, product.getStock());
+				ps.addBatch();
+			}
+			ps.executeBatch();
+			return true;
+		} catch (SQLException e) {
+			// in case error in SQL
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 
