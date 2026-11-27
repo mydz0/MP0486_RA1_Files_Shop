@@ -563,6 +563,15 @@ public class Shop {
 		inventory.add(product);
 		numberProducts++;
 	}
+
+	/**
+	 * delete a product from inventory and from table
+	 */
+	public void deleteProduct(Product product) {
+		// delete product in table using its id
+		dao.deleteProduct(product.getId());
+		inventory.remove(product);
+	}
 	
 	
 
