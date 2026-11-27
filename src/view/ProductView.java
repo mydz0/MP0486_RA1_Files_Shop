@@ -199,7 +199,7 @@ public class ProductView extends JDialog implements ActionListener{
 							JOptionPane.ERROR_MESSAGE);
 					
 				} else {					
-					shop.getInventory().remove(product);
+					shop.deleteProduct(product);
 					JOptionPane.showMessageDialog(null, "Producto eliminado", "Information",
 							JOptionPane.INFORMATION_MESSAGE);
 					// release current screen
